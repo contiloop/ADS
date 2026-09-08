@@ -253,7 +253,7 @@ def _load_model_and_tokenizer(cfg: Mapping[str, Any], max_seq_length: int) -> tu
     with _unsloth_output_context():
         model_api = _resolve_model_api(cfg)
     if _is_rank_zero():
-        print(f"[dqs] sft model-api name={model_api.__name__}", flush=True)
+        print(f"[ads] sft model-api name={model_api.__name__}", flush=True)
     dtype = _torch_dtype(training_cfg.get("dtype", "auto"))
     load_kwargs = {
         "model_name": str(model_cfg["name_or_path"]),
@@ -750,7 +750,7 @@ def _training_argument_kwargs(
         "bf16": bf16,
         "fp16": fp16,
         "report_to": [],
-        "run_name": str(wandb_cfg.get("run_name", _get(cfg, "run.id", "dqs"))),
+        "run_name": str(wandb_cfg.get("run_name", _get(cfg, "run.id", "ads"))),
         # Text-only full SFT of a vision model can leave conditional parameters
         # outside the loss graph.  Let the training profile opt into DDP's
         # unused-parameter traversal for that case; retain LoRA's faster
@@ -1087,7 +1087,7 @@ def run_sft_training(
     summary["structurally_frozen_parameter_count"] = len(structurally_frozen_names)
     if _is_rank_zero() and structurally_frozen_names:
         print(
-            "[dqs] sft structural-freeze "
+            "[ads] sft structural-freeze "
             f"reason=gemma4_shared_kv parameter_count={len(structurally_frozen_names)}",
             flush=True,
         )
@@ -1105,7 +1105,7 @@ def run_sft_training(
     )
     if resume_key_compatibility is not None and _is_rank_zero():
         print(
-            "[dqs] sft resume-key-check "
+            "[ads] sft resume-key-check "
             f"checkpoint={resume_key_compatibility['model_dir']} "
             f"matched={resume_key_compatibility['matched_key_count']} "
             f"runtime={resume_key_compatibility['runtime_key_count']} "
@@ -1184,7 +1184,7 @@ def run_sft_training(
             ) = _save_repaired_checkpoint_at_current_step(cfg, trainer, model)
             if checkpoint_key_compatibility is not None and _is_rank_zero():
                 print(
-                    "[dqs] sft checkpoint-key-check "
+                    "[ads] sft checkpoint-key-check "
                     f"checkpoint={checkpoint_path} "
                     f"matched={checkpoint_key_compatibility['matched_key_count']} "
                     f"runtime={checkpoint_key_compatibility['runtime_key_count']} "
@@ -1266,7 +1266,7 @@ def run_sft_training(
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run DQS Unsloth SFT on an sft_train.jsonl file.")
+    parser = argparse.ArgumentParser(description="Run ADS Unsloth SFT on an sft_train.jsonl file.")
     parser.add_argument("--config", default="configs/config.yaml")
     parser.add_argument("--subset-idx", type=int, default=None)
     parser.add_argument("--dataset-path", default=None)

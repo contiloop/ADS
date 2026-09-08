@@ -32,7 +32,7 @@ def _is_main_process() -> bool:
 
 def _clean_run_id(value: str) -> str:
     cleaned = re.sub(r"[^A-Za-z0-9_-]+", "-", value).strip("-_")
-    return (cleaned or "dqs")[:128]
+    return (cleaned or "ads")[:128]
 
 
 def wandb_run_id(cfg: Mapping[str, Any]) -> str | None:
@@ -53,7 +53,7 @@ def configure_wandb_env(cfg: Mapping[str, Any]) -> None:
         return
     project = _get(cfg, "logging.wandb.project")
     entity = _get(cfg, "logging.wandb.entity")
-    run_name = _get(cfg, "logging.wandb.run_name", _get(cfg, "run.id", "dqs"))
+    run_name = _get(cfg, "logging.wandb.run_name", _get(cfg, "run.id", "ads"))
     tags = _get(cfg, "logging.wandb.tags", [])
     if project:
         os.environ["WANDB_PROJECT"] = str(project)
@@ -75,8 +75,8 @@ def configure_wandb_env(cfg: Mapping[str, Any]) -> None:
 def _wandb_init_kwargs(cfg: Mapping[str, Any], job_type: str | None) -> dict[str, Any]:
     tags = _get(cfg, "logging.wandb.tags", [])
     kwargs: dict[str, Any] = {
-        "project": _get(cfg, "logging.wandb.project", "dqs"),
-        "name": str(_get(cfg, "logging.wandb.run_name", _get(cfg, "run.id", "dqs"))),
+        "project": _get(cfg, "logging.wandb.project", "ads"),
+        "name": str(_get(cfg, "logging.wandb.run_name", _get(cfg, "run.id", "ads"))),
     }
     run_id = wandb_run_id(cfg)
     if run_id:

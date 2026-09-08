@@ -178,7 +178,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Evaluate every DQS checkpoint in step order.")
+    parser = argparse.ArgumentParser(description="Evaluate every ADS checkpoint in step order.")
     parser.add_argument("--config", default="configs/config.yaml")
     parser.add_argument("--profile", default="final")
     parser.add_argument("--checkpoint-dir", default=None)

@@ -2255,7 +2255,7 @@ def _with_bucket_meta(row: Mapping[str, Any], buckets: list[tuple[int, int]], bu
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run the DQS subset front stage.")
+    parser = argparse.ArgumentParser(description="Run the ADS subset front stage.")
     parser.add_argument("--config", default="configs/config.yaml")
     parser.add_argument("--subset-idx", type=int, default=None)
     parser.add_argument("--subset-size", type=int, default=None)

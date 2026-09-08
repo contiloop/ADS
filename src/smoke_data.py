@@ -320,7 +320,7 @@ def _build_val_rows(tokenizer: Any, *, row_count: int) -> tuple[list[dict[str, A
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Create DQS smoke-run datasets.")
+    parser = argparse.ArgumentParser(description="Create ADS smoke-run datasets.")
     parser.add_argument("--config", default="configs/config.yaml")
     parser.add_argument("--override", action="append", default=[])
     parser.add_argument("--output-dir", default="data/smoke")

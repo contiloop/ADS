@@ -401,7 +401,7 @@ def run_stage(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run DQS training across multiple subsets.")
+    parser = argparse.ArgumentParser(description="Run ADS training across multiple subsets.")
     parser.add_argument("--config", default="configs/config.yaml")
     parser.add_argument("--subset-idx", type=int, default=None, help="First subset index to run.")
     parser.add_argument("--subset-size", type=int, default=None)

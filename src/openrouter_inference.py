@@ -136,7 +136,7 @@ def _headers(cfg: Mapping[str, Any], api_key: str) -> dict[str, str]:
         "Content-Type": "application/json",
     }
     site_url = str(cfg.get("site_url") or os.environ.get("OPENROUTER_SITE_URL", "")).strip()
-    app_name = str(cfg.get("app_name") or os.environ.get("OPENROUTER_APP_NAME", "DQS Eval")).strip()
+    app_name = str(cfg.get("app_name") or os.environ.get("OPENROUTER_APP_NAME", "ADS Eval")).strip()
     if site_url:
         headers["HTTP-Referer"] = site_url
     if app_name:
@@ -277,7 +277,7 @@ def run(input_path: Path, output_path: Path) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run OpenRouter chat inference for DQS eval.")
+    parser = argparse.ArgumentParser(description="Run OpenRouter chat inference for ADS eval.")
     parser.add_argument("--input", required=True)
     parser.add_argument("--output", required=True)
     args = parser.parse_args()

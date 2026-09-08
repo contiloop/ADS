@@ -524,7 +524,7 @@ eval-checkpoints:
 
 upload-run:
 	@if [ -z "$(HF_DATASET_REPO)" ]; then \
-		echo "HF_DATASET_REPO is required, e.g. make upload-run HF_DATASET_REPO=username/dqs-runs UPLOAD_RUN_ID=qwen3.5_4b_instruct_lora_sf_on_seed42"; \
+		echo "HF_DATASET_REPO is required, e.g. make upload-run HF_DATASET_REPO=username/ads-runs UPLOAD_RUN_ID=qwen3.5_4b_instruct_lora_sf_on_seed42"; \
 		exit 2; \
 	fi
 	@py="$(REAL_ENV_PY)"; \

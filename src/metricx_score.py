@@ -124,7 +124,7 @@ def _metricx_runner_code() -> str:
 
 
         def main() -> None:
-            parser = argparse.ArgumentParser(description="Run DQS padded MetricX inference.")
+            parser = argparse.ArgumentParser(description="Run ADS padded MetricX inference.")
             parser.add_argument("--tokenizer", required=True)
             parser.add_argument("--model_name_or_path", required=True)
             parser.add_argument("--max_input_length", type=int, required=True)

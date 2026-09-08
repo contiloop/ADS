@@ -660,7 +660,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run full-parameter SFT over existing subset_*/sft_train.jsonl files from a DQS run."
+        description="Run full-parameter SFT over existing subset_*/sft_train.jsonl files from an ADS run."
     )
     parser.add_argument("--config", default="configs/config.yaml")
     parser.add_argument("--source-run-dir", required=True)

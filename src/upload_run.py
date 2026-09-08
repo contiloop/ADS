@@ -65,12 +65,12 @@ def _resolve_path_in_repo(path_in_repo: str | None, run_id: str) -> str | None:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Upload a complete DQS run folder to a Hugging Face dataset repo.")
+    parser = argparse.ArgumentParser(description="Upload a complete ADS run folder to a Hugging Face dataset repo.")
     parser.add_argument("--config", default="configs/config.yaml")
     parser.add_argument("--override", action="append", default=[])
     parser.add_argument("--run-id")
     parser.add_argument("--run-dir")
-    parser.add_argument("--repo", required=True, help="Hugging Face dataset repo id, e.g. username/dqs-runs")
+    parser.add_argument("--repo", required=True, help="Hugging Face dataset repo id, e.g. username/ads-runs")
     parser.add_argument("--revision", default="main")
     parser.add_argument("--path-in-repo")
     parser.add_argument("--commit-message")
@@ -142,7 +142,7 @@ def main() -> None:
         repo_type="dataset",
         path_in_repo=path_in_repo,
         revision=args.revision,
-        commit_message=args.commit_message or f"Upload DQS run {run_id}",
+        commit_message=args.commit_message or f"Upload ADS run {run_id}",
         ignore_patterns=ignore_patterns,
         delete_patterns=f"{path_in_repo}/**" if args.delete_existing_path and path_in_repo else None,
     )

@@ -1,4 +1,4 @@
-# DQS
+# MACHINE TRANSLATION IN SPECIALIZED DOMAINS WITH QE-GUIDED ACTIVE LEARNING AND LLM TEACHERS
 
 ## Quick start
 
@@ -6,8 +6,8 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/contiloop/dqs.git
-cd dqs
+git clone https://github.com/contiloop/ADS.git
+cd ADS
 
 # 2. Install dependencies
 # Requires Python 3.11 and an NVIDIA CUDA environment

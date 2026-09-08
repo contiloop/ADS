@@ -171,7 +171,7 @@ def run(input_path: Path, output_path: Path) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run vLLM inference for DQS student translations.")
+    parser = argparse.ArgumentParser(description="Run vLLM inference for ADS student translations.")
     parser.add_argument("--input", required=True)
     parser.add_argument("--output", required=True)
     args = parser.parse_args()

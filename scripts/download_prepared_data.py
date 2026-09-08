@@ -18,7 +18,7 @@ def load_yaml(path: Path) -> dict[str, Any]:
 
 
 def parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(description="Download prepared DQS parquet data from Hugging Face.")
+    p = argparse.ArgumentParser(description="Download prepared ADS parquet data from Hugging Face.")
     p.add_argument("--config", default="configs/data.yaml")
     p.add_argument("--repo", default=None)
     p.add_argument("--revision", default=None)

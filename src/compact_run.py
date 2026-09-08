@@ -95,7 +95,7 @@ def _compact_rooted_rules(root: Path, rules: tuple[tuple[str, tuple[str, ...]], 
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Remove nonessential DQS run debug artifacts.")
+    parser = argparse.ArgumentParser(description="Remove nonessential ADS run debug artifacts.")
     parser.add_argument("--config", default="configs/config.yaml")
     parser.add_argument("--override", action="append", default=[])
     parser.add_argument("--run-id")

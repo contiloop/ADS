@@ -345,7 +345,7 @@ def run(args: argparse.Namespace) -> None:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run DQS eval across an API model matrix.")
+    parser = argparse.ArgumentParser(description="Run ADS eval across an API model matrix.")
     parser.add_argument("--matrix-config", default="configs/eval_matrix/openrouter.yaml")
     parser.add_argument("--eval-config", default="configs/config.yaml")
     parser.add_argument("--output-dir", default=None)

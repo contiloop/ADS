@@ -22,7 +22,7 @@ def progress_enabled() -> bool:
 def progress(event: str, **fields: Any) -> None:
     if not progress_enabled():
         return
-    parts = [f"[dqs] {event}"]
+    parts = [f"[ads] {event}"]
     for key, value in fields.items():
         if value is None:
             continue

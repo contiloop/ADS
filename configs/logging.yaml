@@ -4,13 +4,13 @@ logging:
     root_dir: ${paths.artifact_root}/logs
   wandb:
     enabled: true
-    project: dqs
+    project: ads
     entity: null
     run_name: ${run.id}
     run_id: ${run.id}
     resume: allow
     tags:
-      - dqs
+      - ads
       - qwen3.5
       - en-ko
   save_effective_config: true

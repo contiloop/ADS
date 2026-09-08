@@ -363,12 +363,12 @@ logging:
     root_dir: artifacts/runs/qwen3.5_4b_instruct_lora_sf_on_seed42/logs
   wandb:
     enabled: true
-    project: dqs
+    project: ads
     entity: null
     run_name: qwen3.5_4b_instruct_lora_sf_on_seed42
     resume: allow
     tags:
-    - dqs
+    - ads
     - qwen3.5
     - en-ko
   save_effective_config: true

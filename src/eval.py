@@ -731,7 +731,7 @@ def _build_eval_records(
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run DQS evaluation.")
+    parser = argparse.ArgumentParser(description="Run ADS evaluation.")
     parser.add_argument("--config", default="configs/config.yaml")
     parser.add_argument("--override", action="append", default=[])
     parser.add_argument("--data-path", default=None)
