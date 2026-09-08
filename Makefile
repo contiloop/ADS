@@ -436,6 +436,8 @@ train:
 		$(if $(filter 1,$(TRAIN_DRY_RUN)),--dry-run,) \
 		$(if $(filter 1,$(TRAIN_FORCE)),--force,)
 
+# Defaults apply only to train-stage; command-line GPU settings still take precedence.
+train-stage: SFT_NPROC_PER_NODE = 4
 train-stage:
 	@py="$(REAL_ENV_PY)"; \
 	if ! command -v "$$py" >/dev/null 2>&1 && [ ! -x "$$py" ]; then \
@@ -459,6 +461,11 @@ train-stage:
 		$(if $(EVAL_OUTPUT_DIR),--eval-output-dir "$(EVAL_OUTPUT_DIR)",) \
 		$(if $(EVAL_LIMIT),--eval-limit "$(EVAL_LIMIT)",) \
 		$(if $(EVAL_METRICS),--eval-metrics "$(EVAL_METRICS)",) \
+		--override "model=gemma4_e2b_it" \
+		--override "training=full" \
+		--override "inference.num_gpus=4" \
+		--override "qe.selection.num_gpus=4" \
+		--override "eval.generation.num_gpus=4" \
 		$(foreach override,$(TRAIN_OVERRIDES),--override "$(override)") \
 		$(foreach override,$(EVAL_OVERRIDES),--eval-override "$(override)") \
 		$(if $(filter 1,$(TRAIN_DRY_RUN)),--dry-run,) \

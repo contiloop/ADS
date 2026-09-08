@@ -35,6 +35,28 @@ make train-stage \
   EVAL_OVERRIDES='eval.generation.num_gpus=4'
 ```
 
+### Qwen3.5-4B full fine-tuning on 4 GPUs
+
+After the environment setup and authentication above, download the Qwen dataset
+and select the Qwen model explicitly:
+
+```bash
+make download-prepared-data \
+  HF_DATASET_REPO=alwaysgood/financial-english-source-corpus-qwen35-1280 \
+  HF_DATASET_LOCAL_DIR=data/prepared/financial-english-source-corpus-qwen35-1280 \
+  HF_DATASET_REVISION=main
+
+make train-stage \
+  SFT_NPROC_PER_NODE=4 \
+  TRAIN_OVERRIDES='model=qwen35_4b_it training=full inference.num_gpus=4 qe.selection.num_gpus=4' \
+  EVAL_OVERRIDES='eval.generation.num_gpus=4'
+```
+
+Without overrides, `make train-stage` uses Gemma 4 E2B full fine-tuning with
+4 GPUs for SFT, student inference, QE selection, and evaluation generation.
+Explicit `TRAIN_OVERRIDES`, `EVAL_OVERRIDES`, and `SFT_NPROC_PER_NODE` take
+precedence over these defaults.
+
 ### Runtime version notes
 
 - Python: `3.11`
